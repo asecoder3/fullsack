@@ -1,0 +1,20 @@
+{
+  "name": "atte-2019-fullsack",
+  "version": "1.0.0",
+  "description": "sack",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asecoder3/fullsack.git"
+  },
+  "author": "Ase",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/asecoder3/fullsack/issues"
+  },
+  "homepage": "https://github.com/asecoder3/fullsack#readme"
+}
