@@ -1,3 +1,10 @@
 body {
   background-color: #ddd;
 }
+#screensaver {
+  width: 200px;
+  height: 75px;
+  border-radius: 30%;
+  transition: 0.5s;
+  position: absolute;
+}
