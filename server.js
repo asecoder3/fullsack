@@ -1,5 +1,5 @@
-let standard_input = process.stdin;
-standard_input.setEncoding('utf-8');
-standard_input.on('data', function (data) {
-    data = data.slice(0, -2);
-});
+
+const express = require('express');
+const app = express();
+
+app.listen(3000, () => console.log(`App listening on port ${port}!`));
