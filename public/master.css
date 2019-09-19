@@ -1,10 +1,13 @@
 body {
-  background-color: #ddd;
+  background-color: #222;
+  color: #ddd;
 }
-#screensaver {
-  width: 200px;
-  height: 75px;
-  border-radius: 30%;
-  transition: 0.5s;
-  position: absolute;
+.titudes {
+  color: #99f;
+  text-shadow: 0px 0px 6px #33e;
+}
+.titudes p {
+  margin-top: 0px;
+  display: inline-block;
+  margin-right: 20px;
 }
