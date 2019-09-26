@@ -3,16 +3,25 @@
   <head>
     <meta charset="utf-8">
     <title>kodarit 2019</title>
-    <script src="./geolocation.js" charset="utf-8"></script>
-    <script src="./app.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
     <link rel="stylesheet" href="./master.css">
   </head>
   <body>
     <div class="titudes">
-      <p>latitude</p>
-      <p id="latitude">0</p>
-      <p>longtitude</p>
-      <p id="longtitude">0</p>
+      <div class="latitude">
+        <p>latitude</p>
+        <p id="latitude">0</p>
+      </div>
+      <div class="longitude">
+        <p>longitude</p>
+        <p id="longitude">0</p>
+      </div>
+    </div>
+    <div class="map" id="map">
+
     </div>
   </body>
+  <script src="./geolocation.js" charset="utf-8"></script>
+  <script src="./app.js" charset="utf-8"></script>
 </html>
