@@ -30,6 +30,7 @@ body {
 }
 .titudes div:hover {
   background-color: #555;
+  box-shadow: 0px 0px 12px 0px black;
 }
 .map {
   width: 100%;
