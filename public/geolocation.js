@@ -8,6 +8,7 @@ if ("geolocation" in navigator) {
       minZoom: 0,
       maxZoom: 19,
     }).addTo(map);
+    $('br').remove();
   });
 } else {
   throw new Error('location not available');
