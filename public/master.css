@@ -20,7 +20,7 @@ body {
   color: #99f;
   text-shadow: 0px 0px 6px #33e;
   text-align: center;
-  height: 10%;
+  height: 40%;
   width: 100vw;
 }
 .titudes p {
@@ -28,17 +28,18 @@ body {
   display: inline-block;
   margin: 0px;
   margin-right: 20px;
-  line-height: 50px;
+  line-height: 200%;
 }
 .titudes div {
   display: inline-block;
   background-color: #444;
   width: 46%;
-  height: 80%;
+  height: 70%;
+  max-height: 100px;
   text-align: center;
   border-radius: 10px;
   transition: 0.2s;
-  margin: 1%;
+  margin: 2% 0px;
 }
 
 .titudes div:hover {
