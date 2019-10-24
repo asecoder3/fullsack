@@ -8,7 +8,7 @@ body {
   height: 100vh;
 }
 .background {
-  background: linear-gradient(#001352, #ff3c00, #fff200);
+  background: linear-gradient(#001352, #ff3c00);
   position: fixed;
   top: 0px;
   left: 0px;
@@ -26,27 +26,45 @@ body {
 .titudes p {
   margin-top: 0px;
   display: inline-block;
-  margin: 0px;
+  margin: 5% 0px;
   margin-right: 20px;
   line-height: 125%;
 }
 .titudes div {
   display: inline-block;
-  background-color: #444;
+
   width: 80vw;
   max-width: 300px;
   height: 10vh;
   text-align: center;
   border-radius: 10px;
-  transition: 0.2s;
-  margin: 2% 0px;
-}
-
-.titudes div:hover {
-  background-color: #555;
-  box-shadow: 0px 0px 12px 0px #555;
+  transition: .2s;
+  margin: 2% 10px;
 }
 .map {
   width: 100%;
   height: 85%;
+}
+.btn-center {
+  margin: 10px 50%;
+  transform: translate(-50%, 0px);
+}
+.shadow {
+  box-shadow: 0px 0px 0px 0px black;
+}
+.form {
+  width: 50vw;
+  margin-left: 10vw;
+}
+.form input, button {
+  display: block;
+  margin-top: 10px;
+}
+.black-trans {
+  background-color: rgba(0, 0, 0, 0.6);
+  box-shadow: 0px 0px 10px 0px black;
+}
+.black-trans:hover {
+  background-color: rgba(0, 0, 0, 0.65);
+  box-shadow: 0px 0px 13px 3px black;
 }
