@@ -12,7 +12,7 @@
   </head>
   <body>
 
-    <div class="titudes">
+    <div class="titudes bluetext">
       <div class="latitude black-trans">
         <p>latitude</p>
         <p id="latitude">0</p>
@@ -22,16 +22,17 @@
         <p id="longitude">0</p>
       </div>
     </div>
-    <div class="map" id="map">
-
-    </div>
+    <div class="map" id="map"></div>
     <div class="background"></div>
-    <form class="form">
-      <input type="text" class="form-control" placeholder="Place Name">
-      <input type="text" class="form-control" placeholder="Rating and Review">
-      <button type="button" name="button" class="btn black-trans">Save</button>
-      <button type="button" name="button" class="btn black-trans">Cancel</button>
-    </form>
+    <button type="button" name="button" class="btn black-trans bluetext" id="savelocation">Save Location</button>
+    <div class="popup" id="placerating">
+      <form class="form">
+        <input type="text" class="form-control" placeholder="Place Name">
+        <input type="text" class="form-control" placeholder="Rating and Review">
+        <button type="button" name="button" class="btn black-trans bluetext">Save</button>
+        <button type="button" name="button" class="btn black-trans bluetext">Cancel</button>
+      </form>
+    </div>
   </body>
   <script src="./geolocation.js" charset="utf-8"></script>
   <script src="./app.js" charset="utf-8"></script>
