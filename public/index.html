@@ -24,13 +24,13 @@
     </div>
     <div class="map" id="map"></div>
     <div class="background"></div>
-    <button type="button" name="button" class="btn black-trans bluetext" id="savelocation">Save Location</button>
+    <button type="button" name="button" class="btn black-trans bluetext" id="savelocation" onclick="openLocationForm()">Save Location</button>
     <div class="popup" id="placerating">
-      <form class="form">
-        <input type="text" class="form-control" placeholder="Place Name">
-        <input type="text" class="form-control" placeholder="Rating and Review">
-        <button type="button" name="button" class="btn black-trans bluetext">Save</button>
-        <button type="button" name="button" class="btn black-trans bluetext">Cancel</button>
+      <form class="form" id="placerating-form">
+        <input type="text" class="form-control" placeholder="Place Name" id="place">
+        <input type="text" class="form-control" placeholder="Rating and Review" id="review">
+        <button type="button" name="button" class="btn black-trans bluetext" onclick="savelocation()">Save</button>
+        <button type="button" name="button" class="btn black-trans bluetext" onclick="cancelLocationSave()">Cancel</button>
       </form>
     </div>
   </body>
