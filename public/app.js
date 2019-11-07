@@ -2,6 +2,7 @@
 if ("geolocation" in navigator) {
   alert('getting locaion');
   navigator.geolocation.getCurrentPosition((location) => {
+    alert('location got, making map...');
     document.getElementById('longitude').innerHTML = location.coords.longitude.toFixed(8);
     document.getElementById('latitude').innerHTML = location.coords.latitude.toFixed(8);
     const crd = [location.coords.latitude, location.coords.longitude];
@@ -13,6 +14,7 @@ if ("geolocation" in navigator) {
     }).addTo(map);
     $('br').remove();
     L.marker(crd).addTo(map);
+    alert('map made');
   });
 } else {
   alert('couldnt get location');
