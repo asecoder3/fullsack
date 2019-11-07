@@ -26,6 +26,7 @@ async function getData() {
   const response = await fetch('api/paikat');
   const json = await response.json();
   console.log(json[0]);
+  //document.getElementById('places-table')
 }
 getData();
 
