@@ -24,14 +24,23 @@
     </div>
     <div class="map" id="map"></div>
     <div class="background"></div>
-    <button type="button" name="button" class="btn black-trans bluetext" id="savelocation" onclick="openLocationForm()">Save Location</button>
-    <div class="popup" id="placerating">
-      <form class="form" id="placerating-form">
-        <input type="text" class="form-control" placeholder="Place Name" id="place">
-        <input type="text" class="form-control" placeholder="Rating and Review" id="review">
-        <button type="button" name="button" class="btn black-trans bluetext" onclick="savelocation()">Save</button>
-        <button type="button" name="button" class="btn black-trans bluetext" onclick="cancelLocationSave()">Cancel</button>
-      </form>
+
+
+    <div class="row">
+      <div class="col-sm-6">
+        <button type="button" name="button" class="btn black-trans bluetext" id="savelocation" onclick="openLocationForm()">Save Location</button>
+        <div class="popup" id="placerating">
+          <form class="form" id="placerating-form">
+            <input type="text" class="form-control" placeholder="Place Name" id="place">
+            <input type="text" class="form-control" placeholder="Rating and Review" id="review">
+            <button type="button" name="button" class="btn black-trans bluetext" onclick="savelocation()">Save</button>
+            <button type="button" name="button" class="btn black-trans bluetext" onclick="cancelLocationSave()">Cancel</button>
+          </form>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        -hoo
+      </div>
     </div>
   </body>
   <script src="./app.js" charset="utf-8"></script>

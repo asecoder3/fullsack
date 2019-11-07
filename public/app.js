@@ -16,10 +16,18 @@ if ("geolocation" in navigator) {
     L.marker(crd).addTo(map);
     alert('map made');
   });
+  alert('idk sumthing');
 } else {
   alert('couldnt get location');
   throw new Error('location not available');
 }
+
+async function getData() {
+  const response = await fetch('api/paikat');
+  const json = await response.json();
+  console.log(json[0]);
+}
+getData();
 
 function openLocationForm() {
   document.getElementById('placerating').style.display = 'block';
