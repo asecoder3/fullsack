@@ -1,5 +1,6 @@
-alert('boo');
+
 if ("geolocation" in navigator) {
+  alert('getting locaion');
   navigator.geolocation.getCurrentPosition((location) => {
     document.getElementById('longitude').innerHTML = location.coords.longitude.toFixed(8);
     document.getElementById('latitude').innerHTML = location.coords.latitude.toFixed(8);
@@ -14,6 +15,7 @@ if ("geolocation" in navigator) {
     L.marker(crd).addTo(map);
   });
 } else {
+  alert('couldnt get location');
   throw new Error('location not available');
 }
 
