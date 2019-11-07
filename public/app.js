@@ -1,3 +1,4 @@
+alert('boo');
 if ("geolocation" in navigator) {
   navigator.geolocation.getCurrentPosition((location) => {
     document.getElementById('longitude').innerHTML = location.coords.longitude.toFixed(8);
