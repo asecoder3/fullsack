@@ -8,12 +8,11 @@ app.use(express.json({ limit: '1mb', }));
 const places = [
   {
     place: 'death valley, usa',
-    rating: {
-      stars: 0,
-      text: 'too hot',
-    },
-    lat: 23.75280600,
-    log: 61.50081830,
+    rating: 2,
+  },
+  {
+    place: 'tampere',
+    rating: 4,
   },
 ];
 app.get('/api/paikat', (req, res) => {
