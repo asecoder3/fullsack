@@ -1,17 +1,18 @@
 
+let map;
 if ("geolocation" in navigator) {
   navigator.geolocation.getCurrentPosition((location) => {
     document.getElementById('longitude').innerHTML = location.coords.longitude.toFixed(8);
     document.getElementById('latitude').innerHTML = location.coords.latitude.toFixed(8);
     const crd = [location.coords.latitude, location.coords.longitude];
-    const map = L.map('map').setView(crd, 15);
+    map = L.map('map').setView(crd, 15);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '',
       minZoom: 0,
       maxZoom: 19,
     }).addTo(map);
     $('br').remove();
-    L.marker(crd).addTo(map);
+    L.marker(crd).addTo(map).bindPopup('You are here.');
   });
 } else {
   throw new Error('location not available');
@@ -27,6 +28,7 @@ async function getData() {
 getData().then(d => {
   places = d;
   updatePlaceTable(places);
+  createRatingPopups(places);
 });
 
 
@@ -37,20 +39,39 @@ function cancelLocationSave() {
   document.getElementById('placerating').style.display = 'none';
   document.getElementById('placerating-form').reset();
 }
-function savelocation() {
-  document.getElementById('placerating').style.display = 'none';
-  const d = {
+async function savelocation() {
+  const place = {
     place: document.getElementById('place').value,
     rating: document.getElementById('review').value,
+    lat: parseFloat(document.getElementById('latitude').innerHTML) + 0.0001,
+    long: parseFloat(document.getElementById('longitude').innerHTML),
   };
-  console.log(d);
-  document.getElementById('placerating-form').reset();
-  places.push({ place: d.place, rating: d.rating, });
+  places.push(place);
   updatePlaceTable(places);
+  createRatingPopups([place]);
+  const status = await post(place);
+  console.log(status);
+  document.getElementById('placerating').style.display = 'none';
+  document.getElementById('placerating-form').reset();
 }
-/*function createRatingPopup(data) {
-
-}*/
+function post(place) {
+  return new Promise(async (res, rej) => {
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(place),
+    };
+    const response = await fetch('/api/rating', options);
+    res(response.status);
+  });
+}
+function createRatingPopups(places) {
+  places.forEach(place => {
+    L.marker([place.lat, place.long]).addTo(map).bindPopup(`<b>${place.place}</b><br>${place.rating} Stars`).openPopup();
+  });
+}
 function updatePlaceTable(data) {
   const table = document.getElementById('places-table');
   table.innerHTML = '';

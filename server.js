@@ -9,10 +9,14 @@ const places = [
   {
     place: 'death valley, usa',
     rating: 2,
+    lat: 40,
+    long: -110,
   },
   {
     place: 'tampere',
     rating: 4,
+    lat: 60,
+    long: 20,
   },
 ];
 app.get('/api/paikat', (req, res) => {
@@ -23,4 +27,10 @@ app.post('/api/rating', (req, res) => {
   console.log('post request');
   console.log(req.body);
   req.body ? res.sendStatus(200) : res.sendStatus(400);
+  places.push({
+    place: req.body.place,
+    rating: req.body.rating,
+    lat: req.body.lat,
+    long: req.body.long,
+  });
 });
