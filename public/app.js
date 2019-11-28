@@ -1,5 +1,6 @@
 
 let map;
+let lastCircle;
 if ("geolocation" in navigator) {
   navigator.geolocation.getCurrentPosition((location) => {
     document.getElementById('longitude').innerHTML = location.coords.longitude.toFixed(8);
@@ -13,6 +14,13 @@ if ("geolocation" in navigator) {
     }).addTo(map);
     $('br').remove();
     L.marker(crd).addTo(map).bindPopup('You are here.');
+    map.on('click', (e) => {
+      console.log(e.latlng);
+      document.getElementById('longitude').innerHTML = e.latlng.lng.toFixed(8);
+      document.getElementById('latitude').innerHTML = e.latlng.lat.toFixed(8);
+      if (lastCircle) lastCircle.remove();
+      lastCircle = L.circle([e.latlng.lat, e.latlng.lng], {radius: 10, color: '#ff0000'}).addTo(map);
+    });
   });
 } else {
   throw new Error('location not available');
@@ -46,6 +54,11 @@ async function savelocation() {
     lat: parseFloat(document.getElementById('latitude').innerHTML) + 0.0001,
     long: parseFloat(document.getElementById('longitude').innerHTML),
   };
+  if (place.place.length === 0) return alert('You didn\'t name the place!');
+  if (place.rating.length === 0 || isNaN(parseInt(place.rating)) || ![1, 2, 3, 4, 5].includes(parseInt(place.rating))) {
+    document.getElementById('review').value = '';
+    return alert('You didn\'t rate the place or did it incorrectly!')
+  }
   places.push(place);
   updatePlaceTable(places);
   createRatingPopups([place]);
@@ -69,7 +82,8 @@ function post(place) {
 }
 function createRatingPopups(places) {
   places.forEach(place => {
-    L.marker([place.lat, place.long]).addTo(map).bindPopup(`<b>${place.place}</b><br>${place.rating} Stars`).openPopup();
+    const marker = L.marker([place.lat, place.long]).addTo(map);
+    marker.bindPopup(`<b>${place.place}</b><br>${place.rating} Stars`).openPopup();
   });
 }
 function updatePlaceTable(data) {
